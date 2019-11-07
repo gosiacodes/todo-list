@@ -35,4 +35,5 @@ body {
     background-color: darkturquoise;
 	box-sizing: border-box;
 	transition: 0.5s;
+    align-content: center;
 }
