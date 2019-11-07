@@ -21,7 +21,7 @@ body {
     background-color: darkred;
 }
 
-.remove-button a:hover {
+.remove-button:hover {
   background-color: green;
   opacity: 0.7;
   color: #000000; 
@@ -30,5 +30,8 @@ body {
 .container {
     position: relative;
     max-width: 600px;
+    height: auto;
     background-color: darkturquoise;
+	box-sizing: border-box;
+	transition: 0.5s;
 }
