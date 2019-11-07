@@ -21,7 +21,7 @@ body {
 
 .add-button:hover {
     background-color: lightgreen;
-    opacity: 0.7;
+    color: black;
 }
 
 .remove-button {
@@ -32,10 +32,10 @@ body {
 }
 
 .remove-button:hover {
-    background-color: green;
-    opacity: 0.7;
+    background-color: lightgreen;
     width: 120px;
     height: 30px;
+    color: black;
 }
 
 .add-element {
