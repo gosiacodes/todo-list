@@ -17,6 +17,6 @@ body {
     position: absolute;
     width: 100px;
     height: 25px;
-    color: firebrick;
-    
+    color: white;
+    background-color: darkred;
 }
