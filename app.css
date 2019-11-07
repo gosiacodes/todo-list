@@ -1,7 +1,7 @@
 body {
 	font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    color: orange;
+    color: orangered;
   	font-weight: 300;
   	text-align: center;
   	background-color: lightblue;
@@ -28,7 +28,7 @@ body {
     width: 100px;
     height: 25px;
     color: white;
-    background-color: darkred;
+    background-color: lightcoral;
 }
 
 .remove-button:hover {
