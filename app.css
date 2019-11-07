@@ -29,6 +29,6 @@ body {
 
 .container {
     position: relative;
-    max-width: 1000px;
+    max-width: 600px;
     background-color: darkturquoise;
 }
