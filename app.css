@@ -13,4 +13,8 @@ body {
   	  
 }
 
-
+.remove-button {
+    position: absolute;
+    width: 50px;
+    height: 25px;
+}
