@@ -15,7 +15,7 @@ function toggelFinished() {
 }
 
 function addNewTask() {
-	alert("funkar");
+	document.getElementById("par").innerHTML = "det funkar jupii"
 }
 
 
