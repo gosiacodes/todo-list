@@ -1,5 +1,16 @@
 // this is the JavaScript file
 
+
+
 function addNewTask() {
-	// do something
+	console.log("funkar");
 }
+
+
+
+
+
+
+
+
+$("newTask").click(addNewTask);
