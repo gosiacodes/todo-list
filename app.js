@@ -15,15 +15,12 @@ function toggelFinished() {
 }
 
 function addNewTask() {
-    var newTask = $("#newTask").text();
-    $("#par").text(function ) {
-        return newTask;
-    }
-    
-    /*$("#par").text()
-    document.getElementById("par").innerHTML = newTask;*/
-}
-
+    $(document).addNT(function(){
+        var newTask = $("#newTask").text();
+        $("#par").text(function(){
+            return newTask;
+        });
+     });
 
 
 function clear(){
