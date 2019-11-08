@@ -13,4 +13,4 @@ function addNewTask() {
 
 
 
-$("newTask").click(addNewTask);
+$("newTaskButton").click(addNewTask);
