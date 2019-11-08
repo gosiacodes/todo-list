@@ -15,7 +15,8 @@ function toggelFinished() {
 }
 
 function addNewTask() {
-	document.getElementById("par").innerHTML = "det funkar jupii"
+    var newTask = $("#newTask").text();
+    document.getElementById("par").innerHTML = newTask;
 }
 
 
