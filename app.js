@@ -12,9 +12,12 @@ function addNewTask() {
 
 
 
+function clear(){
+    alert("funkar också");
+}
 
 
 
 
-
-$("newTaskButton").click(addNewTask);
+$("#newTaskButton").click(addNewTask);
+$("#removeButton").click(clear);
