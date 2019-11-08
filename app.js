@@ -1,5 +1,5 @@
 // this is the JavaScript file
 
-function addNewListEntry() {
+function addNewTask() {
 	// do something
 }
