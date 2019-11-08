@@ -14,14 +14,24 @@ function toggelFinished() {
 	 
 }
 
+/*
 function addNewTask() {
-    $(document).addNT(function(){
-        var newTask = $("#new-task").text();
-        $("#par").text(function(){
+    $(document).ready(function(){
+        $("#par").text(function(i, newTask){
+            newTask = $("#new-task").text();
             return newTask;
         });
-     });
-}
+    });
+}*/
+
+$(document).ready(function(){
+    $("#new-task-button").click(function(){
+        $("#par").text(function(i, newTask){
+            newTask = $("#new-task").text();
+            return newTask;
+        });
+    });
+});
 
 function clear(){
     alert("funkar också");
@@ -30,5 +40,5 @@ function clear(){
 
 
 
-$("#new-task-button").click(addNewTask);
+
 $("#remove-button").click(clear);
