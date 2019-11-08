@@ -7,7 +7,7 @@
 }
 */
 
-var tasks= [];
+var tasks = [];
 
 function toggelFinished() {
 	document.getElementById("tasks").innerHTML = "true";
@@ -16,7 +16,12 @@ function toggelFinished() {
 
 function addNewTask() {
     var newTask = $("#newTask").text();
-    document.getElementById("par").innerHTML = newTask;
+    $("#par").text(function ) {
+        return newTask;
+    }
+    
+    /*$("#par").text()
+    document.getElementById("par").innerHTML = newTask;*/
 }
 
 
