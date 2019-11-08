@@ -3,7 +3,7 @@
 
 
 function addNewTask() {
-	console.log("funkar");
+	document.getElementById("par").innerHTML = "funkar";
 }
 
 
