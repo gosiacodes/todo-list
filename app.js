@@ -1,5 +1,13 @@
 // this is the JavaScript file
 
+/*
+The task objects have the following structure:
+{
+	task: "Task description",
+	finished: false
+}
+*/
+
 var tasks= [];
 function toggelFinished() {
 	document.getElementById("tasks").innerHTML = "true";
