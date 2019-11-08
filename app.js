@@ -16,12 +16,12 @@ function toggelFinished() {
 
 function addNewTask() {
     $(document).addNT(function(){
-        var newTask = $("#newTask").text();
+        var newTask = $("#new-task").text();
         $("#par").text(function(){
             return newTask;
         });
      });
-
+}
 
 function clear(){
     alert("funkar också");
@@ -30,5 +30,5 @@ function clear(){
 
 
 
-$("#newTaskButton").click(addNewTask);
-$("#removeButton").click(clear);
+$("#new-task-button").click(addNewTask);
+$("#remove-button").click(clear);
