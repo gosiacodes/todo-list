@@ -68,3 +68,7 @@ li {
     color: black;
     max-width: 500px;
 }
+
+ul {
+    list-style-type: none;
+}
