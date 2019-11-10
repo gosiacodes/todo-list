@@ -38,6 +38,27 @@ function addNewTask() {
 function addNewTask() {
     'use strict';
     document.getElementById("par").innerHTML = "det funkar";
+
+    var task, taskText, listItem;
+
+    // Read input, create task object and add it to the tasks array
+    taskText = $("#new-task").val();
+    task = {
+        taskDescription: taskText,
+        finished: false
+    };
+    tasks.push(task);
+
+    // Create list item and insert it in the DOM
+    listItem = "<li>" + taskText + "</li>";
+    $("#task-list").append(listItem);
+
+    // Empty the input field
+    $("#new-task").val("");
+
+
+    console.log(taskText);
+
 }
 
 function clear() {
