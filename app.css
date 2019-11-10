@@ -39,13 +39,16 @@ body {
 }
 
 .add-element {
-    max-width: 600px;
-    height: auto;
+    width: 500px;
+    height: 20px;
+    border-style: outset;
+    border-color: steelblue;
+    border-radius: 1px;
 }
 
 .container {
     position: relative;
-    max-width: 600px;
+    max-width: 700px;
     height: auto;
     background-color: darkturquoise;
 	box-sizing: border-box;
@@ -61,4 +64,5 @@ li {
     border-radius: 1px;
     background-color: lightblue;
     color: black;
+    max-width: 500px;
 }
