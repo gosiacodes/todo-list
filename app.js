@@ -75,11 +75,13 @@ function addNewTask() {
     rewriteTaskList();
 }
 
-function clear() {
-    'use strict';
-    alert("funkar också");
-}
+$(function removeFinishedTasks() {
+    $(".remove-button").click(function()
+        {
+        $(".strike-through").remove();
+    });
+});
 
 
 $("#new-task-button").click(addNewTask);
-$("#remove-button").click(clear);
+/*$("#remove-button").click(removeFinishedTasks);*/
