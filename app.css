@@ -55,8 +55,10 @@ body {
     border-radius: 15px;
 }
 
-.task-list {
+li {
     border-style: outset;
-    border-color: blue;
+    border-color: steelblue;
     border-radius: 1px;
+    background-color: lightblue;
+    color: black;
 }
