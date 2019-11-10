@@ -19,27 +19,6 @@ function toggelFinished() {
     console.log(this);
 }
 
-/*
-function addNewTask() {
-    $(document).ready(function(){
-        $("#par").text(function(i, newTask){
-            newTask = $("#new-task").text();
-            return newTask;
-        });
-    });
-}*/
-
-/*$(document).ready(function(){
-    $("#new-task-button").click(function(){
-        $("#par").text(function(i, newTask){
-            newTask = $("#new-task").text();
-            return newTask;
-        });
-    });
-});*/
-
-
-
 function addNewTask() {
     'use strict';
     // document.getElementById("par").innerHTML = "det funkar";

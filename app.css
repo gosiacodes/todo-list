@@ -50,5 +50,13 @@ body {
     background-color: darkturquoise;
 	box-sizing: border-box;
 	transition: 0.5s;
-    
+    border-style: solid;
+    border-color: darkslateblue;
+    border-radius: 15px;
+}
+
+.task-list {
+    border-style: outset;
+    border-color: blue;
+    border-radius: 1px;
 }
