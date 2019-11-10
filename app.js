@@ -11,7 +11,12 @@ var tasks = [];
 
 function toggelFinished() {
     'use strict';
-	document.getElementById("tasks").innerHTML = "true";
+    // document.getElementById("tasks").innerHTML = "true";
+
+    $(this).toggleClass("strike-through");
+
+    console.log("toggle");
+    console.log(this);
 }
 
 /*
@@ -37,7 +42,7 @@ function addNewTask() {
 
 function addNewTask() {
     'use strict';
-    document.getElementById("par").innerHTML = "det funkar";
+    // document.getElementById("par").innerHTML = "det funkar";
 
     var task, taskText, listItem;
 
@@ -53,12 +58,13 @@ function addNewTask() {
     listItem = "<li>" + taskText + "</li>";
     $("#task-list").append(listItem);
 
+    // Find the list item and add a click function
+    listItem = $("#task-list li:last");
+    listItem.click(toggelFinished);
+    // console.log(listItem);
+
     // Empty the input field
     $("#new-task").val("");
-
-
-    console.log(taskText);
-
 }
 
 function clear() {
