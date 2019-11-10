@@ -18,17 +18,14 @@ function toggelFinished() {
     console.log("toggle");
     console.log(this);
 }
-
-
-
 function rewriteTaskList() {
     var taskList;
     var listItem;
-    console.log(tasks);
+    //console.log(tasks);
 
     // Find the unordered list
     taskList = $("#task-list");
-    console.log(taskList);
+    //console.log(taskList);
 
     // Remove the previous list
     $("#task-list").empty();
@@ -36,10 +33,18 @@ function rewriteTaskList() {
     // Create the new list
     for ( var i = 0; i < tasks.length; i++) {
         // Create list item
-        //if tasks[i].finished 
-        listItem = "<li>" + tasks[i].taskDescription + "</li>";
-        console.log(tasks[i]);
-        console.log(i);
+        if (tasks[i].finished) {
+            listItem = '<li class="strike-through">' + tasks[i].taskDescription + "</li>";
+            console.log("it is true")
+        } 
+        else {
+            listItem = "<li>" + tasks[i].taskDescription + "</li>";
+            console.log("it is false")
+        }
+    
+        
+        //console.log(tasks[i]);
+        //console.log(i);
 
         // Add list item to task list
         $("#task-list").append(listItem);
