@@ -38,7 +38,38 @@ function addNewTask() {
     });
 });*/
 
+function rewriteTaskList() {
+    var taskList;
+    var listItem;
+    console.log(tasks);
 
+    // Find the unordered list
+    taskList = $("#task-list");
+    console.log(taskList);
+
+    // Remove the previous list
+    $("#task-list").empty();
+
+    // Create the new list
+    for ( var i = 0; i < tasks.length; i++) {
+        // Create list item
+        //if tasks[i].finished 
+        listItem = "<li>" + tasks[i].taskDescription + "</li>";
+        console.log(tasks[i]);
+        console.log(i);
+
+        // Add list item to task list
+        $("#task-list").append(listItem);
+        
+        // Add click function
+        // Find the list item and add a click function
+        listItem = $("#task-list li:last");
+        listItem.click(toggelFinished);
+
+    }
+
+
+}
 
 function addNewTask() {
     'use strict';
@@ -54,17 +85,10 @@ function addNewTask() {
     };
     tasks.push(task);
 
-    // Create list item and insert it in the DOM
-    listItem = "<li>" + taskText + "</li>";
-    $("#task-list").append(listItem);
-
-    // Find the list item and add a click function
-    listItem = $("#task-list li:last");
-    listItem.click(toggelFinished);
-    // console.log(listItem);
-
     // Empty the input field
     $("#new-task").val("");
+
+    rewriteTaskList();
 }
 
 function clear() {
