@@ -5,15 +5,21 @@
 	taskDescription: "The task at hand",
 	finished: false
 }
+
+// tasks[i].finished = !tasks[i].finished;
+
 */
 
 var tasks = [];
 
 function toggelFinished() {
     'use strict';
-    // document.getElementById("tasks").innerHTML = "true";
-
-    $(this).toggleClass("strike-through");
+    var i = $(this).index();
+    var finished = tasks[i].finished;
+    tasks[i].finished = !finished; 
+    console.log(finished);
+    //$(this).toggleClass("strike-through");
+    rewriteTaskList();
 
     console.log("toggle");
     console.log(this);
