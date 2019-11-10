@@ -12,11 +12,30 @@
 
 var tasks = [];
 
+function addNewTask() {
+    'use strict';
+    
+    var task, taskText, listItem;
+
+    // Read input, create task object and add it to the tasks array
+    taskText = $("#new-task").val();
+    task = {
+        taskDescription: taskText,
+        finished: false
+    };
+    tasks.push(task);
+
+    // Empty the input field
+    $("#new-task").val("");
+
+    rewriteTaskList();
+}
+
 function toggelFinished() {
     'use strict';
     var i = $(this).index();
     var finished = tasks[i].finished;
-    tasks[i].finished = !finished; 
+    tasks[i].finished = !finished;
     console.log(finished);
     //$(this).toggleClass("strike-through");
     rewriteTaskList();
@@ -24,7 +43,9 @@ function toggelFinished() {
     console.log("toggle");
     console.log(this);
 }
+
 function rewriteTaskList() {
+    'use strict';
     var taskList;
     var listItem;
     //console.log(tasks);
@@ -37,7 +58,7 @@ function rewriteTaskList() {
     $("#task-list").empty();
 
     // Create the new list
-    for ( var i = 0; i < tasks.length; i++) {
+    for (var i = 0; i < tasks.length; i++) {
         // Create list item
         if (tasks[i].finished) {
             listItem = '<li class="strike-through">' + tasks[i].taskDescription + "</li>";
@@ -61,38 +82,23 @@ function rewriteTaskList() {
         listItem.click(toggelFinished);
 
     }
-
-
 }
 
 
-function addNewTask() {
-    'use strict';
-    // document.getElementById("par").innerHTML = "det funkar";
-
-    var task, taskText, listItem;
-
-    // Read input, create task object and add it to the tasks array
-    taskText = $("#new-task").val();
-    task = {
-        taskDescription: taskText,
-        finished: false
-    };
-    tasks.push(task);
-
-    // Empty the input field
-    $("#new-task").val("");
-
-    rewriteTaskList();
+function removeFinishedTasks() {
+    $(".strike-through").remove();
 }
 
-$(function removeFinishedTasks() {
-    $(".remove-button").click(function()
-        {
-        $(".strike-through").remove();
-    });
-});
+/*function removeFinishedTasks() {
+    for (var i = 0; i < tasks.length; i++) {
+        if (finished === true) {
+            $(".strike-through").slideUp(function() {
+                $("this").remove();
+            });
+        }
+    }
+}*/
 
 
 $("#new-task-button").click(addNewTask);
-/*$("#remove-button").click(removeFinishedTasks);*/
+$("#remove-button").click(removeFinishedTasks);
