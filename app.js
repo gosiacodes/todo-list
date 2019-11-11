@@ -1,90 +1,137 @@
 // this is the JavaScript file
 
-/* The task objects will have the following structure:
+/* 
+
+Description of how the ToDo-list works:
+
+Our tasks will be stored in an array called tasks.
+The array tasks will contain task objects with the following structure:
 {
 	taskDescription: "The task at hand",
 	finished: false
 }
+This is were the data is stored, and has to be updated 
+every time the ToDo-list changes. 
 
-// tasks[i].finished = !tasks[i].finished;
+The content of the ToDo-list will be written by the rewriteTaskList function.
 
 */
 
-var tasks = [];
 
+// This is where the information about the tasks will be stored
+var tasks = []; 
+
+
+/* addNewTask is called when the Add task button is clicked on the homepage.
+It adds a new task to the ToDo-list, empties the input field and calls 
+rewriteTaskList */
 function addNewTask() {
     'use strict';
     
-    var task, taskText, listItem;
+    var task, taskText;
 
-    // Read input, create task object and add it to the tasks array
+    // Read input with jQuery val-method: 
+    // https://www.w3schools.com/jquery/html_val.asp
     taskText = $("#new-task").val();
+
+    // Create a task object
     task = {
         taskDescription: taskText,
         finished: false
     };
+
+    // Put the task object in the tasks array
     tasks.push(task);
 
-    // Empty the input field
+    // Empty the input field with jQuery val-method
     $("#new-task").val("");
 
+    // Rewrite the task list using the tasks array
     rewriteTaskList();
 }
 
-function toggelFinished() {
+
+/* toggleFinished is called when a task is clicked in the task list
+on the homepage. It changes the value of the finished property of 
+the corresponding task object and calls rewriteTaskList */
+function toggleFinished() {
     'use strict';
-    var i = $(this).index();
-    var finished = tasks[i].finished;
-    tasks[i].finished = !finished;
-    console.log(finished);
-    //$(this).toggleClass("strike-through");
-    rewriteTaskList();
 
-    console.log("toggle");
-    console.log(this);
+    // Find the index of the task with the jQuery index method
+    // https://api.jquery.com/index/
+    // 'this' is a reference to the object that called the function
+    var i = $(this).index();
+
+    // Change value of the 'finished' property of the task with index i 
+    // in the tasks array using the logical not operator (!)
+    // This changes the value to its opposite: If it is true, 
+    // it will become false, and if it is false, it will become true
+    tasks[i].finished = !tasks[i].finished;
+
+    // Rewrite the task list using the tasks array
+    rewriteTaskList();
 }
 
+
+/* rewriteTaskList is called from all the functions that changes the
+content of the tasks array. It writes the task list on the homepage 
+according to what is stored in the tasks array, and adds toggleFinished
+as an onclick function to all the list elements */
 function rewriteTaskList() {
     'use strict';
-    var taskList;
-    var listItem;
-    //console.log(tasks);
-
-    // Find the unordered list
-    taskList = $("#task-list");
-    //console.log(taskList);
-
-    // Remove the previous list
+ 
+    // Find the task list on the homepage and empty it using the 
+    // jQuery method empty
+    // https://www.w3schools.com/jquery/html_empty.asp
     $("#task-list").empty();
 
-    // Create the new list
+    // Create the new task list on the homepage by looping over the tasks array
     for (var i = 0; i < tasks.length; i++) {
-        // Create list item
+
+        var taskText, classInfo, listElementString, lastListItem;
+
+        // Find the decription for the current task
+        taskText = tasks[i].taskDescription;
+
+        // Find out if the current task should be shown with or without
+        // strike through as defined by the CSS class 'strike-through'
         if (tasks[i].finished) {
-            listItem = '<li class="strike-through">' + tasks[i].taskDescription + "</li>";
-            console.log("it is true")
+            // Task is finished, and will be shown with strike through
+            classInfo = ' class="strike-through"';
         } 
         else {
-            listItem = "<li>" + tasks[i].taskDescription + "</li>";
-            console.log("it is false")
+            // Task is not finished, and will be shown without strike through
+            classInfo = '';
         }
-    
-        
-        //console.log(tasks[i]);
-        //console.log(i);
 
-        // Add list item to task list
-        $("#task-list").append(listItem);
+        // Create a string that describes the list element we want to show 
+        // on the homepage using a template literal
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals
+        listElementString = `<li${classInfo}>${taskText}</li>`;
         
-        // Add click function
-        // Find the list item and add a click function
-        listItem = $("#task-list li:last");
-        listItem.click(toggelFinished);
+        // Add the list element to the task list on the homepage using 
+        // jQuery append method
+        // https://www.w3schools.com/jquery/html_append.asp
+        $("#task-list").append(listElementString);
+        
+        // Add click function to the list element that was just created
 
+        // Find the last list item in the task list on the homepage
+        // This is the one that was just added
+        // https://www.w3schools.com/jquery/jquery_ref_selectors.asp
+        lastListItem = $("#task-list li:last");
+
+        // Add toggleFinished as an onclick function
+        // https://www.w3schools.com/jquery/event_click.asp
+        lastListItem.click(toggleFinished);
     }
 }
 
 
+/* remove FinishedTasks is called when the Remove finished tasks button is clicked 
+on the homepage.
+It should go through the tasks array and remove those tasks that are finished,
+and when that is done, call rewriteTaskList */
 function removeFinishedTasks() {
     $(".strike-through").remove();
 }
