@@ -84,18 +84,10 @@ function rewriteTaskList() {
     }
 }
 
+
 function removeFinishedTasks() {
-    
-$(".strike-through").slideUp(funktion() {
-    $("this").remove();
-});
-}
-
-
-/*function removeFinishedTasks() {
     $(".strike-through").remove();
-     $(".strike-through").val("");
-}*/
+}
 
 /*function removeFinishedTasks() {
     for (var i = 0; i < tasks.length; i++) {
