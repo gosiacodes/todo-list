@@ -129,15 +129,24 @@ on the homepage.
 It should go through the tasks array and remove those tasks that are finished,
 and when that is done, call rewriteTaskList */
 
-function removeFinishedTasks() {
+/*function removeFinishedTasks() {
     for (var i = 0; i < tasks.length; i++) {
         if (tasks[i].finished) {
             $(".strike-through").remove();
             }
     }
-}
+}*/
 
-            
+function removeFinishedTasks() {
+    var tasks2 = [];
+    for (var i = 0; i < tasks.length; i++) {
+        if (!tasks[i].finished) {
+            tasks2.push(tasks[i]);
+        }
+    }
+    tasks = tasks2;
+    rewriteTaskList();
+}
 
 
 //$(".strike-through").remove();
