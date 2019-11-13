@@ -128,19 +128,19 @@ function rewriteTaskList() {
 on the homepage.
 It should go through the tasks array and remove those tasks that are finished,
 and when that is done, call rewriteTaskList */
+
 function removeFinishedTasks() {
-    $(".strike-through").remove();
+    for (var i = 0; i < tasks.length; i++) {
+        if (tasks[i].finished) {
+            $(".strike-through").remove();
+            }
+    }
 }
 
-/*function removeFinishedTasks() {
-    for (var i = 0; i < tasks.length; i++) {
-        if (finished === true) {
-            $(".strike-through").slideUp(function() {
-                $("this").remove();
-            });
-        }
-    }
-}*/
+            
+
+
+//$(".strike-through").remove();
 
 
 $("#new-task-button").click(addNewTask);
