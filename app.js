@@ -13,21 +13,37 @@ every time the ToDo-list changes.
 The content of the ToDo-list will be written by the rewriteTaskList function.
 */
 
+/* checkInput is called when the Add task button is clicked on the homepage. 
+It checks if there is text in the input field. If there is no text, 
+alert says that there have to be text written, else function addNewTask is running.
+*/
+function checkInput(){
+    'use strict';
+    // Read input with jQuery val-method: 
+    // https://www.w3schools.com/jquery/html_val.asp
+    var inputValue = $("#new-task").val();
+    // Checks if input field is empty
+    if (inputValue === '') {
+        // If it´s empty, alert informs that text have to be written
+        alert("You must write a new task!");
+    // If there is text in input field, run addNewTask function
+    } else {
+        addNewTask();
+    } 
+}
 
 // This is where the information about the tasks will be stored
 var tasks = []; 
 
 
-/* addNewTask is called when the Add task button is clicked on the homepage.
-It adds a new task to the ToDo-list, empties the input field and calls 
-rewriteTaskList */
+/* addNewTask is called by checkInput function, when there is text in the input field.
+It adds a new task to the ToDo-list, empties the input field and calls rewriteTaskList */
 function addNewTask() {
     'use strict';
     
     var task, taskText;
 
     // Read input with jQuery val-method: 
-    // https://www.w3schools.com/jquery/html_val.asp
     taskText = $("#new-task").val();
 
     // Create a task object
@@ -124,27 +140,23 @@ function rewriteTaskList() {
 }
 
 
-/* remove FinishedTasks is called when the Remove finished tasks button is clicked 
-on the homepage.
-It should go through the tasks array and remove those tasks that are finished,
-and when that is done, call rewriteTaskList */
-
-/*function removeFinishedTasks() {
-    for (var i = 0; i < tasks.length; i++) {
-        if (tasks[i].finished) {
-            $(".strike-through").remove();
-            }
-    }
-}*/
-
+/* remove FinishedTasks is called when the Remove finished tasks button is clicked on the homepage.
+It goes through the tasks array, finds unfinished tasks, moves them to a new array 
+and replaces the old list with a new one and when that is done, calls rewriteTaskList */
 function removeFinishedTasks() {
+    // This is where the information about the tasks will be stored in this function
     var tasks2 = [];
+    // Create the new task list on the homepage by looping over the tasks array
     for (var i = 0; i < tasks.length; i++) {
+        // If value of the 'finished' property of the task with index i 
+        // in the tasks array is false, put those tasks objects in a new tasks array
         if (!tasks[i].finished) {
             tasks2.push(tasks[i]);
         }
     }
+    // Replace old array with the new one
     tasks = tasks2;
+    // Rewrite the task list using this new tasks array
     rewriteTaskList();
 }
 
@@ -152,5 +164,5 @@ function removeFinishedTasks() {
 //$(".strike-through").remove();
 
 
-$("#new-task-button").click(addNewTask);
+$("#new-task-button").click(checkInput);
 $("#remove-button").click(removeFinishedTasks);
