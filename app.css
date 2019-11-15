@@ -12,7 +12,7 @@ body {
   	text-decoration-color: red;
   	  
 }
-.add-button {
+.new-task-button {
     width: 80px;
     height: 40px;
     font-size: 15px;
@@ -20,10 +20,10 @@ body {
     background-color: lightgrey;
 }
 
-.add-button:hover {
+/*.add-button:hover {
     background-color: darkturquoise;
     color: black;
-}
+}*/
 
 .remove-button {
     width: 180px;
@@ -33,12 +33,12 @@ body {
     background-color: lightgrey;
 }
 
-.remove-button:hover {
+/*.remove-button:hover {
     background-color: darkturquoise;
     width: 200px;
     height: 50px;
     color: black;
-}
+}*/
 
 .add-element {
     width: 400px;
@@ -62,7 +62,7 @@ body {
 
 li {
     border-style: outset;
-    border-color: black; 
+    border-color: gray; 
     border-radius: 2px;
     background-color:darkturquoise ;
     color: black; 

@@ -160,8 +160,35 @@ function removeFinishedTasks() {
     rewriteTaskList();
 }
 
-
 //$(".strike-through").remove();
+
+$(".remove-button").on("mouseover", function (){
+    $(this).addClass("mouse-over");
+    $(this).css("background", "darkturquoise");
+    $(this).animate({height: "60px"}, "fast");
+    $(this).animate({width: "220px"}, "fast"); 
+})
+
+$(".remove-button").on("mouseout", function (){
+    $(this).removeClass("mouse-over");
+    $(this).css("background", "lightgrey");
+    $(this).animate({height: "40px"}, "fast");
+    $(this).animate({width: "180px"}, "fast");
+})
+
+$(".new-task-button").on("mouseover", function (){
+    $(this).addClass("mouse-over");
+    $(this).css("background", "darkturquoise");
+    $(this).animate({height: "50px"}, "fast");
+    $(this).animate({width: "100px"}, "fast");
+})
+
+$(".new-task-button").on("mouseout", function (){
+    $(this).removeClass("mouse-over");
+    $(this).css("background", "lightgrey");
+    $(this).animate({height: "40px"}, "fast");
+    $(this).animate({width: "80px"}, "fast");
+})
 
 
 $("#new-task-button").click(checkInput);
