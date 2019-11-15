@@ -1,14 +1,14 @@
 body {
 	font-size: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    color: ;
+    color: darkturquoise;
   	font-weight: 300;
   	text-align: center;
-  	background-color: ;
-
+  	background-color: none;
 }
 .strike-through {
   	text-decoration: line-through;
+    text-decoration-style: bold;
   	text-decoration-color: red;
   	  
 }
@@ -17,11 +17,11 @@ body {
     height: 40px;
     font-size: 15px;
     color: black;
-    background-color: ;
+    background-color: lightgrey;
 }
 
 .add-button:hover {
-    background-color: ;
+    background-color: darkturquoise;
     color: black;
 }
 
@@ -30,11 +30,11 @@ body {
     height: 40px;
     font-size: 15px;
     color: black;
-    background-color: ;
+    background-color: lightgrey;
 }
 
 .remove-button:hover {
-    background-color: ;
+    background-color: darkturquoise;
     width: 200px;
     height: 50px;
     color: black;
@@ -44,7 +44,7 @@ body {
     width: 400px;
     height: 20px;
     border-style: inset;
-    border-color: gray;
+    border-color: black;
     border-radius: 1px;
 }
 
@@ -52,20 +52,20 @@ body {
     position: relative;
     max-width: 700px;
     height: auto;
-    background-color: ;
+    background-color: #FFCBA4;
 	box-sizing: border-box;
 	transition: 0.5s;
-    border-style: ;
-    border-color: darkslateblue;
+    border-style: darkturquoise;
+    border-color: black;
     border-radius: 15px;
 }
 
 li {
     border-style: outset;
-    border-color: ;
-    border-radius: 1px;
-    background-color: ;
-    color: ;
+    border-color: black; 
+    border-radius: 2px;
+    background-color:darkturquoise ;
+    color: black; 
     max-width: 500px;
 }
 
