@@ -43,6 +43,7 @@ body {
 .add-element {
     width: 400px;
     height: 20px;
+    font-size: 15px;
     border-style: inset;
     border-color: black;
     border-radius: 1px;
@@ -57,13 +58,13 @@ body {
 	transition: 0.5s;
     border-style: darkturquoise;
     border-color: black;
-    border-radius: 15px;
+    border-radius: 10px;
 }
 
 li {
     border-style: outset;
     border-color: black; 
-    border-radius: 2px;
+    border-radius: 1px;
     background-color:darkturquoise ;
     color: black; 
     max-width: 500px;
