@@ -216,7 +216,6 @@ $(function() {
     $( "#task-list" ).sortable({
         start: storePreviousIndex,
         stop: updateTasksArrayOnSort,
-        containment: $("#task-list-container"),
-        axis: "y"
+        containment: $("#task-list-container")
     });
 });
