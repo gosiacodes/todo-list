@@ -13,6 +13,8 @@ every time the ToDo-list changes.
 The content of the ToDo-list will be written by the rewriteTaskList function.
 */
 
+var sortStartIndex;
+
 /* checkInput is called when the Add task button is clicked on the homepage. 
 It checks if there is text in the input field. If there is no text, 
 alert says that there have to be text written, else function addNewTask is running.
@@ -160,32 +162,61 @@ function removeFinishedTasks() {
     rewriteTaskList();
 }
 
-//$(".strike-through").remove();
 
+function storePreviousIndex(event, ui) {
+    sortStartIndex = ui.item.index();
+    console.log("Sort start", sortStartIndex);
+}
+
+// Handle rearrangement of the list
+function updateTasksArrayOnSort(event, ui) {
+    var sortStopIndex = ui.item.index();
+    console.log("Sort stop: ", sortStopIndex);
+
+    var taskThatHasMoved = tasks[sortStartIndex];
+    tasks.splice(sortStartIndex, 1);
+    tasks.splice(sortStopIndex, 0, taskThatHasMoved);
+
+    rewriteTaskList();
+}
+
+// Add Animation on mouseover and mouseout events for buttons
 $(".remove-button").on("mouseover", function (){
     $(this).addClass("mouse-over");
     $(this).css("background", "darkturquoise");
     $(this).animate({height: "60px", width: "220px"}, "fast"); 
-})
+});
 
 $(".remove-button").on("mouseout", function (){
     $(this).removeClass("mouse-over");
     $(this).css("background", "lightgrey");
     $(this).animate({height: "40px", width: "180px"}, "fast");
-})
+});
 
 $(".new-task-button").on("mouseover", function (){
     $(this).addClass("mouse-over");
     $(this).css("background", "darkturquoise");
     $(this).animate({height: "50px", width: "100px"}, "fast");
-})
+});
 
 $(".new-task-button").on("mouseout", function (){
     $(this).removeClass("mouse-over");
     $(this).css("background", "lightgrey");
     $(this).animate({height: "40px", width: "80px"}, "fast");
-})
+});
 
 
+// Add event handlers
 $("#new-task-button").click(checkInput);
 $("#remove-button").click(removeFinishedTasks);
+
+
+// Make task-list rearrangable
+$(function() {
+    $( "#task-list" ).sortable({
+        start: storePreviousIndex,
+        stop: updateTasksArrayOnSort,
+        containment: $("#task-list-container"),
+        axis: "y"
+    });
+});
