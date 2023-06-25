@@ -2,10 +2,10 @@
 
 Simple app "ToDo List" - group project at JavaScript course (2019)  
 
-https://margareta75.github.io/todo-list/
+https://gosiacodes.github.io/todo-list/
 
 ## :pushpin: _Contributors_
-- [@Gosia](https://github.com/margareta75)
+- [@Gosia](https://github.com/gosiacodes)
 - [@Maria](https://github.com/monstermaria)
 - [@Gabby](https://github.com/greenangel73)
 
